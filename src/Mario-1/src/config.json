@@ -1,0 +1,16 @@
+{
+	"images": [
+		{
+			"name": "tiles",
+			"path": "./assets/images/tiles.png",
+			"width": 32,
+			"height": 16
+		}
+	],
+	"fonts": [
+		{
+			"name": "Joystix",
+			"path": "./assets/fonts/Joystix.ttf"
+		}
+	]
+}

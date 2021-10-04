@@ -1,0 +1,28 @@
+{
+	"images": [
+		{
+			"name": "character",
+			"path": "./assets/images/character.png",
+			"width": 176,
+			"height": 20
+		},
+		{
+			"name": "tiles",
+			"path": "./assets/images/tiles.png",
+			"width": 460,
+			"height": 640
+		},
+		{
+			"name": "toppers",
+			"path": "./assets/images/toppers.png",
+			"width": 480,
+			"height": 1152
+		}
+	],
+	"fonts": [
+		{
+			"name": "Joystix",
+			"path": "./assets/fonts/Joystix.ttf"
+		}
+	]
+}
