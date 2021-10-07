@@ -47,7 +47,6 @@ export default class Coin extends GameObject {
 	static generateSprites() {
 		const sprites = [];
 
-		// Only grabbing the first sprite from each row, but this can be altered to grab all the sprites.
 		for (let x = 0; x < Coin.TOTAL_SPRITES; x++) {
 			sprites.push(new Sprite(
 				images.get(ImageName.Coin),

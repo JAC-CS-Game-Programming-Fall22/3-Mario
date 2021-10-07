@@ -58,7 +58,7 @@ export default class PlayerJumpingState extends State {
 	onObjectCollision(object) {
 		if (object.didCollideWithEntity(this.player)) {
 			if (object.isSolid && object.getEntityCollisionDirection(this.player) === Direction.Down) {
-				object.onCollision(this.player.level.objects);
+				object.onCollision(this.player);
 
 				this.player.position.y = object.position.y + object.dimensions.y;
 				this.player.velocity.y = 0;

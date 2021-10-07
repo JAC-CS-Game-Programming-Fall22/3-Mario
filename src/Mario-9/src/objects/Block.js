@@ -33,7 +33,6 @@ export default class Block extends GameObject {
 	static generateSprites() {
 		const sprites = [];
 
-		// Only grabbing the first sprite from each row, but this can be altered to grab all the sprites.
 		for (let y = 0; y < Block.TOTAL_SPRITES; y++) {
 			sprites.push(new Sprite(
 				images.get(ImageName.Blocks),
@@ -47,33 +46,36 @@ export default class Block extends GameObject {
 		return sprites;
 	}
 
-	onCollision(objects) {
+	onCollision(collider) {
 		if (this.wasCollided) {
 			sounds.play(SoundName.EmptyBlock);
 			return;
 		}
+
+		super.onCollision(collider);
 
 		const coin = new Coin(
 			new Vector(Coin.WIDTH, Coin.HEIGHT),
 			new Vector(this.position.x, this.position.y),
 		);
 
-		// make the block move up and down
+		// Make the block move up and down.
 		timer.tween(this.position, ['y'], [this.position.y - 5], 0.1, () => {
 			timer.tween(this.position, ['y'], [this.position.y + 5], 0.1);
 		});
 
-		// make the coin move up from the block and play a sound
+		// Make the coin move up from the block and play a sound.
 		timer.tween(coin.position, ['y'], [this.position.y - Coin.HEIGHT], 0.1);
 		sounds.play(SoundName.Reveal);
 
-		// Since we want the coin to appear like it's coming out of the block,
-		// We add the coin to the beginning of the objects array. This way,
-		// when the objects are rendered, the coins will be rendered first,
-		// and the blocks will be rendered after.
-		objects.unshift(coin);
+		/**
+		 * Since we want the coin to appear like it's coming out of the block,
+		 * We add the coin to the beginning of the objects array. This way,
+		 * when the objects are rendered, the coins will be rendered first,
+		 * and the blocks will be rendered after.
+		 */
+		collider.level.objects.unshift(coin);
 
-		this.wasCollided = true;
 		this.currentFrame = Block.HIT;
 	}
 }
