@@ -30,10 +30,10 @@ export default class StateMachine {
 		this.currentState = state;
 	}
 
-	change(stateName, enterParams) {
+	change(stateName, enterParameters) {
 		this.currentState.exit();
 		this.currentState = this.states[stateName];
-		this.currentState.enter(enterParams);
+		this.currentState.enter(enterParameters);
 	}
 
 	update(dt) {
