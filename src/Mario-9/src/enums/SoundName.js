@@ -1,4 +1,4 @@
-const ImageName = {
+const SoundName = {
 	Death: 'death',
 	EmptyBlock: 'empty-block',
 	Jump: 'jump',
@@ -9,4 +9,4 @@ const ImageName = {
 	Reveal: 'reveal',
 };
 
-export default ImageName;
+export default SoundName;
