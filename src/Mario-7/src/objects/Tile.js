@@ -2,7 +2,7 @@ import Vector from "../../lib/Vector.js";
 import { TileType } from "../enums.js";
 
 export default class Tile {
-	static TILE_SIZE = 16;
+	static SIZE = 16;
 	static COLLIDABLE_TILES = [
 		TileType.Ground,
 	];
@@ -19,7 +19,7 @@ export default class Tile {
 	 */
 	constructor(x, y, id, hasTopper, tileSet, topperSet) {
 		this.position = new Vector(x, y);
-		this.dimensions = new Vector(Tile.TILE_SIZE, Tile.TILE_SIZE);
+		this.dimensions = new Vector(Tile.SIZE, Tile.SIZE);
 		this.id = id;
 		this.hasTopper = hasTopper;
 		this.tileSet = tileSet;
@@ -31,10 +31,10 @@ export default class Tile {
 	}
 
 	render(tileSets, topperSets) {
-		tileSets[this.tileSet][this.id].render(this.position.x * Tile.TILE_SIZE, this.position.y * Tile.TILE_SIZE);
+		tileSets[this.tileSet][this.id].render(this.position.x * Tile.SIZE, this.position.y * Tile.SIZE);
 
 		if (this.hasTopper) {
-			topperSets[this.topperSet][this.id].render(this.position.x * Tile.TILE_SIZE, this.position.y * Tile.TILE_SIZE);
+			topperSets[this.topperSet][this.id].render(this.position.x * Tile.SIZE, this.position.y * Tile.SIZE);
 		}
 	}
 }

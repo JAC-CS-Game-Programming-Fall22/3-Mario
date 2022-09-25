@@ -28,7 +28,7 @@ export default class LevelMaker {
 	static SNAIL_CHANCE = 0.1;
 
 	static generateLevel(width = LevelMaker.DEFAULT_LEVEL_WIDTH, height = LevelMaker.DEFAULT_LEVEL_HEIGHT) {
-		const tiles = [];
+		const tiles = new Array();
 		const tileSet = getRandomPositiveInteger(0, LevelMaker.TILE_SETS_WIDTH * LevelMaker.TILE_SET_HEIGHT - 1);
 		const topperSet = getRandomPositiveInteger(0, LevelMaker.TOPPER_SETS_WIDTH * LevelMaker.TOPPER_SETS_HEIGHT - 1);
 
@@ -171,7 +171,7 @@ export default class LevelMaker {
 					if (didSucceedChance(LevelMaker.SNAIL_CHANCE)) {
 						const snail = new Snail(
 							new Vector(Snail.WIDTH, Snail.HEIGHT),
-							new Vector(x * Tile.TILE_SIZE, (y - 1) * Tile.TILE_SIZE),
+							new Vector(x * Tile.SIZE, (y - 1) * Tile.SIZE),
 							new Vector(Snail.VELOCITY_LIMIT, Snail.VELOCITY_LIMIT),
 							level,
 							player,
@@ -198,7 +198,7 @@ export default class LevelMaker {
 	 * @returns A 2D array of sprite objects.
 	 */
 	static generateSprites(spriteSheet, setsX, setsY, sizeX, sizeY) {
-		const tileSets = [];
+		const tileSets = new Array();
 		let counter = -1;
 
 		// for each tile set on the X and Y
@@ -211,10 +211,10 @@ export default class LevelMaker {
 					for (let x = sizeX * tileSetX; x < sizeX * tileSetX + sizeX; x++) {
 						tileSets[counter].push(new Sprite(
 							spriteSheet,
-							x * Tile.TILE_SIZE,
-							y * Tile.TILE_SIZE,
-							Tile.TILE_SIZE,
-							Tile.TILE_SIZE,
+							x * Tile.SIZE,
+							y * Tile.SIZE,
+							Tile.SIZE,
+							Tile.SIZE,
 						));
 					}
 				}

@@ -8,8 +8,8 @@ import { images, sounds, timer } from "../globals.js";
 import Vector from "../../lib/Vector.js";
 
 export default class Block extends GameObject {
-	static WIDTH = Tile.TILE_SIZE;
-	static HEIGHT = Tile.TILE_SIZE;
+	static WIDTH = Tile.SIZE;
+	static HEIGHT = Tile.SIZE;
 	static TOTAL_SPRITES = 5;
 	static NOT_HIT = 1;
 	static HIT = 4;

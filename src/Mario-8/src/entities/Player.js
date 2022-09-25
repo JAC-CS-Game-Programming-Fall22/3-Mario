@@ -1,8 +1,8 @@
 import Sprite from "../../lib/Sprite.js";
 import StateMachine from "../../lib/StateMachine.js";
 import Vector from "../../lib/Vector.js";
-import { Direction, GameStateName, ImageName, PlayerStateName } from "../enums.js";
-import { images, keys, stateMachine } from "../globals.js";
+import { Direction, ImageName, PlayerStateName } from "../enums.js";
+import { images, keys } from "../globals.js";
 import Level from "../objects/Level.js";
 import PlayerFallingState from "../states/entity/player/PlayerFallingState.js";
 import PlayerIdleState from "../states/entity/player/PlayerIdleState.js";

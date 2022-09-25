@@ -11,7 +11,7 @@ export default class Tilemap {
 	 */
 	constructor(width, height, tiles) {
 		this.dimensions = new Vector(width, height);
-		this.canvasDimensions = new Vector(width * Tile.TILE_SIZE, height * Tile.TILE_SIZE);
+		this.canvasDimensions = new Vector(width * Tile.SIZE, height * Tile.SIZE);
 		this.tiles = tiles;
 	}
 

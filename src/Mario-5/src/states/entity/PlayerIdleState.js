@@ -26,5 +26,8 @@ export default class PlayerIdleState extends State {
 		if (keys.a || keys.d) {
 			this.player.changeState(PlayerStateName.Walking);
 		}
+		else {
+			this.player.stop();
+		}
 	}
 }

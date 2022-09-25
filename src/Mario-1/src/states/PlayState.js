@@ -27,8 +27,12 @@ export default class PlayState extends State {
 		/**
 		 * Translate scene by camera scroll amount. Negative value shifts have
 		 * the effect of making it seem like we're actually moving right and vice-versa.
+		 *
+		 * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/translate
 		 */
 		context.translate(-this.camera.position.x, this.camera.position.y);
+
+		this.renderXZero();
 
 		this.map.render();
 		context.restore();
@@ -44,6 +48,15 @@ export default class PlayState extends State {
 		for (let i = 0; i < 15; i++) {
 			context.fillStyle = 'red';
 			context.fillRect(CANVAS_WIDTH / 2, i * 20, 1, 10);
+		}
+	}
+
+	renderXZero() {
+		context.fillStyle = 'white';
+		context.font = '20px Joystix';
+		context.fillText('x = 0', 10, 220);
+		for (let i = 0; i < 15; i++) {
+			context.fillRect(0, i * 20, 2, 10);
 		}
 	}
 }

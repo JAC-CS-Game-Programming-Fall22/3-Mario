@@ -7,8 +7,8 @@ import GameObject from "./GameObject.js";
 import Tile from "./Tile.js";
 
 export default class Bush extends GameObject {
-	static WIDTH = Tile.TILE_SIZE;
-	static HEIGHT = Tile.TILE_SIZE;
+	static WIDTH = Tile.SIZE;
+	static HEIGHT = Tile.SIZE;
 	static TOTAL_SPRITES = 5;
 
 	/**

@@ -12,10 +12,10 @@
  * jumping up into blocks typically breaks them or reveals a power-up.
  *
  * Art
- * https://opengameart.org/content/kenney-16x16
+ * @see https://opengameart.org/content/kenney-16x16
  *
  * Music
- * https://freesound.org/people/Sirkoto51/sounds/393818/
+ * @see https://freesound.org/people/Sirkoto51/sounds/393818/
  */
 
 import { StateName } from "./enums.js";
@@ -27,14 +27,23 @@ import {
 	images,
 	keys,
 	stateMachine,
+	CANVAS_WIDTH,
+	CANVAS_HEIGHT,
 } from "./globals.js";
 import PlayState from "./states/PlayState.js";
+
+// Set the dimensions of the play area.
+canvas.width = CANVAS_WIDTH;
+canvas.height = CANVAS_HEIGHT;
+canvas.setAttribute('tabindex', '1'); // Allows the canvas to receive user input.
+
+// Now that the canvas element has been prepared, we can add it to the DOM.
+document.body.appendChild(canvas);
 
 // Fetch the asset definitions from config.json.
 const {
 	images: imageDefinitions,
 	fonts: fontDefinitions,
-	// @ts-ignore
 } = await fetch('./src/config.json').then((response) => response.json());
 
 // Load all the assets from their definitions.

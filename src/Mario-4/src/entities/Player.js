@@ -31,7 +31,7 @@ export default class Player {
 		this.gravityForce = new Vector(0, 1000);
 		this.speedScalar = 5;
 		this.frictionScalar = 0.95;
-		this.groundHeight = LevelMaker.GROUND_HEIGHT * Tile.TILE_SIZE - this.dimensions.y;
+		this.groundHeight = LevelMaker.GROUND_HEIGHT * Tile.SIZE - this.dimensions.y;
 
 		this.direction = Direction.Right;
 		this.sprites = Player.generateSprites();

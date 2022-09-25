@@ -14,7 +14,7 @@ export default class PlayState extends State {
 
 		this.player = new Player(
 			new Vector(Player.WIDTH, Player.HEIGHT),
-			new Vector(CANVAS_WIDTH / 2, LevelMaker.GROUND_HEIGHT * Tile.TILE_SIZE - Player.HEIGHT),
+			new Vector(CANVAS_WIDTH / 2, LevelMaker.GROUND_HEIGHT * Tile.SIZE - Player.HEIGHT),
 		);
 
 		this.camera = new Camera(this.player, new Vector(CANVAS_WIDTH, CANVAS_HEIGHT));

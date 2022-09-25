@@ -1,7 +1,7 @@
 import Vector from "../../lib/Vector.js";
 
 export default class Tile {
-	static TILE_SIZE = 16;
+	static SIZE = 16;
 
 	/**
 	 * Represents one tile in the Tilemap and on the screen.
@@ -18,6 +18,6 @@ export default class Tile {
 	}
 
 	render() {
-		this.sprites[this.id].render(this.position.x * Tile.TILE_SIZE, this.position.y * Tile.TILE_SIZE);
+		this.sprites[this.id].render(this.position.x * Tile.SIZE, this.position.y * Tile.SIZE);
 	}
 }

@@ -8,8 +8,8 @@ import Sprite from "../../lib/Sprite.js";
 import Vector from "../../lib/Vector.js";
 
 export default class Coin extends GameObject {
-	static WIDTH = Tile.TILE_SIZE;
-	static HEIGHT = Tile.TILE_SIZE;
+	static WIDTH = Tile.SIZE;
+	static HEIGHT = Tile.SIZE;
 	static TOTAL_SPRITES = 5;
 	static POINTS = 10;
 

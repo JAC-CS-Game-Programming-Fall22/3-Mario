@@ -1,6 +1,6 @@
 # 🏃‍♂️ Mario
 
-You can view the pretty version of the notes [here](https://jac-cs-game-programming-f21.github.io/Notes/#/4-Mario/).
+You can view the pretty version of the notes [here](https://jac-cs-game-programming-fall22.github.io/Notes/#/3-Mario/).
 
 ## 🎯 Objectives
 
@@ -16,25 +16,21 @@ Super Mario Bros. was instrumental in the resurgence of video games in the mid-8
 
 ![Mario](./images/Mario.jpg)
 
-_Image courtesy of [Nintendo](https://mario.nintendo.com/history/)_
+_Image from [Nintendo](https://mario.nintendo.com/history/)_
 
 ## 🔨 Setup
 
-1. Clone the repo (or download the zip) for today's lecture, which you can find [here](https://github.com/JAC-CS-Game-Programming-F21/4-Mario).
+1. Clone the repo (or download the zip) for today's lecture, which you can find [here](https://github.com/JAC-CS-Game-Programming-Fall22/3-Mario).
 2. Open the repo in Visual Studio Code.
-3. Instead of running a server manually and having to refresh the browser tab every time you want to see your changes, you can install Visual Studio Code's "Live Server" extension and have it all be taken care of for you:
+3. Start Visual Studio Code's "Live Server" extension. If you don't have it installed:
    1. Click on the extensions icons in the left-hand side navigation.
    2. Search for "Live Server".
    3. Click install next to the extension by "Ritwick Dey". You may have to reload the window.
 
       ![Live Server](./images/Live-Server.png)
 
-   4. Once it's installed, click "Go Live" on the bottom right of the window. This should start the server and automatically open a new tab in your browser at `http://127.0.0.1:5500/` (or whatever URL/port it says in VSC).
+   4. Once it's installed, click "Go Live" on the bottom right of the window. This should start the server and automatically open a new tab in your browser at `http://127.0.0.1:5500/` (or whatever port it says on your machine).
       - The files the server serves will be relative to the directory you had open in VSC when you hit "Go Live".
-
-4. Alternatively, you can run the server manually without installing "Live Server":
-   1. Open the VSC terminal (`` CTRL + ` ``) and run `npx http-server` (assuming you have NodeJS installed, if you don't, [download and install it from here](https://nodejs.org)) inside the root folder of the repo.
-   2. In your browser, navigate to `http://localhost:8080` (or whatever the URL is that is displayed in the terminal).
 
 ## 🌅 Mario-0 (The "Day-0" Update)
 
@@ -99,7 +95,7 @@ If you're interested in learning more about cameras, here are two informative vi
 
 ### Important Functions
 
-- `context.translate(x, y)`
+- [`context.translate(x, y)`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/translate)
   - Shifts the coordinate system by `x` and `y`. This comes in handy for simulating camera behavior.
 
 ### Important Code
@@ -210,7 +206,7 @@ Mario-4 behaves the same way as Mario-3 but with the added feature of animating 
   ```javascript
   startTimer() {
       this.timer.addTask(() => {
-          this.currentFrame = Math.max(0, (this.currentFrame + 1) % (this.frames.length));
+          this.currentFrame = (this.currentFrame + 1) % this.frames.length;
       }, this.interval);
   }
   ```
@@ -567,14 +563,14 @@ Here are the objects our game has so far:
       if (didSucceedChance(LevelMaker.BUSH_CHANCE)) {
           objects.push(new Bush(
               new Vector(Bush.WIDTH, Bush.HEIGHT),
-              new Vector(x * Tile.TILE_SIZE, y * Tile.TILE_SIZE),
+              new Vector(x * Tile.SIZE, y * Tile.SIZE),
           ));
       }
 
       if (didSucceedChance(LevelMaker.BLOCK_CHANCE)) {
           objects.push(new Block(
               new Vector(Block.WIDTH, Block.HEIGHT),
-              new Vector(x * Tile.TILE_SIZE, y * Tile.TILE_SIZE),
+              new Vector(x * Tile.SIZE, y * Tile.SIZE),
           ));
       }
   ```

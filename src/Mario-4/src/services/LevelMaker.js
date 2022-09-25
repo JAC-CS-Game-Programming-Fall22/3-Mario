@@ -10,7 +10,7 @@ export default class LevelMaker {
 	static GROUND_HEIGHT = LevelMaker.DEFAULT_LEVEL_HEIGHT - 4;
 
 	static generateLevel(width = LevelMaker.DEFAULT_LEVEL_WIDTH, height = LevelMaker.DEFAULT_LEVEL_HEIGHT) {
-		const tiles = [];
+		const tiles = new Array();
 		const sprites = LevelMaker.generateSprites();
 
 		// Initialize the tiles with empty arrays.
@@ -32,8 +32,8 @@ export default class LevelMaker {
 
 	static generateSprites() {
 		return [
-			new Sprite(images.get(ImageName.Tiles), 0, 0, Tile.TILE_SIZE, Tile.TILE_SIZE),
-			new Sprite(images.get(ImageName.Tiles), Tile.TILE_SIZE, 0, Tile.TILE_SIZE, Tile.TILE_SIZE),
+			new Sprite(images.get(ImageName.Tiles), 0, 0, Tile.SIZE, Tile.SIZE),
+			new Sprite(images.get(ImageName.Tiles), Tile.SIZE, 0, Tile.SIZE, Tile.SIZE),
 		];
 	}
 }
