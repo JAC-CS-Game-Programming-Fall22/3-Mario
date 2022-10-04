@@ -15,7 +15,16 @@ export default class StartState extends State {
 	constructor() {
 		super();
 
-		this.enter();
+		this.level = LevelMaker.generateLevel();
+
+		this.player = new Player(
+			new Vector(Player.WIDTH, Player.HEIGHT),
+			new Vector(Player.WIDTH, 0),
+			new Vector(Player.VELOCITY_LIMIT, Player.VELOCITY_LIMIT),
+			this.level,
+		);
+
+		LevelMaker.generateSnails(this.level, this.player);
 	}
 
 	enter() {

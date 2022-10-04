@@ -30,7 +30,7 @@ export default class SnailIdleState extends State {
 	}
 
 	exit() {
-		this.timer.clear();
+		this.timerTask?.clear();
 	}
 
 	update() {
@@ -42,7 +42,7 @@ export default class SnailIdleState extends State {
 	}
 
 	startTimer() {
-		this.timer = timer.wait(this.idleDuration, () => this.snail.changeState(SnailStateName.Moving));
+		this.timerTask = timer.wait(this.idleDuration, () => this.snail.changeState(SnailStateName.Moving));
 	}
 
 	/**

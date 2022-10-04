@@ -32,7 +32,7 @@ export default class SnailMovingState extends State {
 	}
 
 	exit() {
-		this.timer.clear();
+		this.timerTask?.clear();
 	}
 
 	update(dt) {
@@ -45,7 +45,7 @@ export default class SnailMovingState extends State {
 	}
 
 	startTimer() {
-		this.timer = timer.wait(this.moveDuration, () => this.decideMovement());
+		this.timerTask = timer.wait(this.moveDuration, () => this.decideMovement());
 	}
 
 	move(dt) {
